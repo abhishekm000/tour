@@ -1,25 +1,178 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Shop — Product Listing</title>
-<link rel="stylesheet" href="styles.css">
-<script>     </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Tour Website</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            scroll-behavior: smooth;
+        }
+
+        header {
+            background: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e') no-repeat center/cover;
+            height: 100vh;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-shadow: 2px 2px 5px black;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0,0,0,0.6);
+            padding: 10px;
+            text-align: center;
+            z-index: 1000;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        h1 {
+            font-size: 60px;
+        }
+
+        section {
+            padding: 60px;
+            text-align: center;
+        }
+
+        /* Image Slider */
+        .slider {
+            width: 80%;
+            margin: auto;
+            position: relative;
+        }
+        .slides img {
+            width: 100%;
+            border-radius: 10px;
+            display: none;
+        }
+        .slides img.active {
+            display: block;
+        }
+
+        /* Cards */
+        .card-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .card {
+            width: 280px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            overflow: hidden;
+            transition: 0.3s;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .card img {
+            width: 100%;
+        }
+        .card h3 {
+            padding: 10px;
+        }
+
+        footer {
+            background: black;
+            padding: 20px;
+            color: white;
+            text-align: center;
+        }
+
+    </style>
+
 </head>
 <body>
-<form>  
-  <label hi="EMAIL">EMAIL:</label>
-  <input type="EMAIL" id="EMAIL">
-  
-  <label for="password">Password:</label>
-  <input type="password" id="password">
-  
-    <button type="submit">Submit</button>
 
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#places">Places</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+    </nav>
 
-</form>
+    <header id="home">
+        <h1>Explore The World</h1>
+        <p>Travel to your favorite destinations</p>
+    </header>
+
+    <!-- Image Slider -->
+    <section id="gallery">
+        <h2>🌄 Beautiful Destinations</h2>
+
+        <div class="slider">
+            <div class="slides">
+                <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee" class="active">
+                <img src="https://images.unsplash.com/photo-1483683804023-6ccdb62f86ef">
+                <img src="https://images.unsplash.com/photo-1470770903676-69b98201ea1c">
+            </div>
+        </div>
+    </section>
+
+    <!-- Places Section -->
+    <section id="places">
+        <h2>✨ Popular Places</h2>
+        <div class="card-container">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1548783307-f63f12c6f2b6">
+                <h3>Paris</h3>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1">
+                <h3>Bali</h3>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1505765050516-f72dcac9c60e">
+                <h3>Switzerland</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <h2>📩 Contact Us</h2>
+        <p>Email: travelworld@example.com</p>
+        <p>Phone: +91 98765 43210</p>
+    </section>
+
+    <footer>
+        © 2025 Travel World | All Rights Reserved
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Slider Logic
+        let index = 0;
+        const images = document.querySelectorAll(".slides img");
+
+        function showSlide() {
+            images.forEach(img => img.classList.remove("active"));
+            images[index].classList.add("active");
+
+            index = (index + 1) % images.length;
+        }
+
+        setInterval(showSlide, 3000);
+    </script>
 
 </body>
 </html>
-
